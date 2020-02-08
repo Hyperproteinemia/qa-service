@@ -43,7 +43,7 @@ public class AnswerController {
         return new ResponseEntity<>(jsonResponse, httpStatus);
     }
 
-    @GetMapping("/aq/answer/{id}")
+    @GetMapping("/qa/answer/{id}")
     public ResponseEntity<String> getAnswersByQuestionId(@PathVariable Long id) {
         HttpStatus httpStatus;
         String jsonResponse;
