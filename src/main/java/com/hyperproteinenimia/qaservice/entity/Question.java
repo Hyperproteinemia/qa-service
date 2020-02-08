@@ -24,6 +24,6 @@ public class Question {
     @NotEmpty
     private String text;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     Set<Answer> answers = new HashSet<>();
 }
