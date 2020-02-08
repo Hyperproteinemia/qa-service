@@ -24,7 +24,7 @@ public class AnswerController {
         this.questionService = questionService;
     }
 
-    @GetMapping("/qa/answer/")
+    @GetMapping("/qa/answer")
     public ResponseEntity<String> getAll() {
         HttpStatus httpStatus;
         String jsonResponse;

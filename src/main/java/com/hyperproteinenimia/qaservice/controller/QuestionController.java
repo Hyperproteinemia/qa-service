@@ -38,7 +38,7 @@ public class QuestionController {
         return new ResponseEntity<>(jsonResponse, httpStatus);
     }
 
-    @PostMapping("/qa/question/")
+    @PostMapping("/qa/question")
     public ResponseEntity<String> addQuestion(@RequestHeader(name = "username") String username,
                                               @RequestBody Question question) {
         question.setUsername(username);
