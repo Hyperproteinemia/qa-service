@@ -38,6 +38,25 @@ public class QuestionController {
         return new ResponseEntity<>(jsonResponse, httpStatus);
     }
 
+    @GetMapping("/qa/question/{id}")
+    public ResponseEntity<String> getQuestion(@PathVariable long id) {
+        HttpStatus httpStatus;
+        String jsonResponse;
+
+        Question question = questionService.getById(id);
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            jsonResponse = mapper.writeValueAsString(question);
+            httpStatus = HttpStatus.OK;
+        } catch (JsonProcessingException e) {
+            jsonResponse = "Failed";
+            httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+
+        return new ResponseEntity<>(jsonResponse, httpStatus);
+    }
+
     @PostMapping("/qa/question")
     public ResponseEntity<String> addQuestion(@RequestHeader(name = "username") String username,
                                               @RequestBody Question question) {
